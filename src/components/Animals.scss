@@ -1,0 +1,74 @@
+.animals{
+    margin:2rem auto;
+}
+.animals__heading{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin:0.4rem 0 0.5rem 0.8rem;
+}
+.animals__heading > h3{
+    color:#f5f5f5;
+    position: relative;
+    font-size:2rem;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    font-weight:900;
+}
+.animals__heading > h3::before{
+    border-radius:0 0 5px 5px;
+    position: absolute;
+    content: "";
+    background-color: #f5f5f5;
+    width:110%;
+    height:3px;
+    left:0;
+    bottom:-6px;
+    transform-origin: left center;
+    transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform:scaleX(0);
+    opacity: 0;
+}
+.animals__heading > h3:hover::before{
+    opacity: 1;
+    transform:scaleX(1);
+}
+.animals__heading .MuiSvgIcon-root{
+    color:#f5f5f5;
+    font-size:2rem;
+    margin-left:0.4rem;
+}
+.animals__card{
+    display: grid;
+    grid-template-columns: repeat(6,minmax(0,1fr));
+    grid-gap:2rem;
+}
+
+
+
+// Resonsive
+
+@media screen and (max-width:768px) {
+    .animals__card{
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    
+}
+@media screen and (max-width:500px) {
+
+    .animals__heading > h3{
+        font-size:1.5rem;
+    }
+    .animals__heading .MuiSvgIcon-root{
+        font-size:1.5rem;
+    }
+}
+@media screen and (max-width:300px) {
+
+    .animals__heading > h3{
+        font-size:1rem;
+    }
+    .animals__heading .MuiSvgIcon-root{
+        font-size:1rem;
+    }
+}

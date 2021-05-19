@@ -1,0 +1,73 @@
+.recomend{
+    margin: 2rem auto;
+}
+
+.recomend__heading{
+    display: flex;
+    align-items: center;
+    margin:0.4rem 0 0.5rem 0.8rem;
+    cursor: pointer;
+}
+
+.recomend__heading > h3{
+    color:#f5f5f5;
+    font-size: 2rem;
+    font-weight:900;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.recomend__heading > h3::before{
+    content: "";
+    position: absolute;
+    background-color: #f5f5f5;
+    width:120%;
+    height:3px;
+    border-radius: 0 0 5px 5px;
+    left:0;
+    bottom: -6px;
+    opacity: 0;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+.recomend__heading >h3:hover::before{
+    opacity: 1 !important;
+    transform: scaleX(1);
+} 
+.recomend__heading .MuiSvgIcon-root{
+   color:#f5f5f5;
+   margin-left:0.4rem;
+   font-size: 2rem;
+}
+
+.recomend__card{
+   display: grid;
+   grid-template-columns: repeat(6,minmax(0,1fr));
+   grid-gap:2rem;
+   margin-top:1rem;
+
+}
+
+// Responsive
+
+@media screen and (max-width:768px) {
+    .recomend__card{
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    
+}
+
+@media screen and (max-width:500px) {
+    .recomend__heading > h3{
+        font-size: 1.5rem;
+    }
+    
+}
+@media screen and (max-width:334px) {
+    .recomend__heading > h3{
+        font-size: 1rem;
+    }
+    
+}

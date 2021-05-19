@@ -1,0 +1,80 @@
+.sing{
+    margin:2rem auto;
+}
+.sing__header{
+    display: flex;
+    align-items: center;
+    margin:0.4rem 0 0.5rem 0.8rem;
+    cursor: pointer;
+}
+.sing__header > h3{
+    color:#f5f5f5;
+    font-size:2rem;
+    letter-spacing: 3px;
+    font-weight:900;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.sing__header > h3::before{
+    content: "";
+    position: absolute;
+    background-color: #f5f5f5;
+    width:110%;
+    left:0;
+    bottom:-6px;
+    height:3px;
+    border-radius: 0 0 5px 5px;
+    transition:all 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform:scaleX(0);
+    opacity: 0;
+    transform-origin: left center;
+}
+
+.sing__header > h3:hover:before{
+    opacity: 1;
+    transform:scaleX(1);
+}
+
+.sing__header .MuiSvgIcon-root{
+    color:#f5f5f5;
+    font-size:2rem;
+    margin-left:0.4rem;
+}
+
+.sing__card{
+    display:grid;
+    grid-template-columns: repeat(5,minmax(0,1fr));
+    grid-gap:2rem;
+}
+
+
+
+// Responsive
+
+
+@media screen and (max-width:768px) {
+    .sing__card{
+        grid-template-columns: repeat(1,minmax(0,1fr));
+    }
+    
+}
+@media screen and (max-width:500px) {
+
+    .sing__header > h3{
+        font-size:1.5rem;
+    }
+    .sing__header .MuiSvgIcon-root{
+        font-size:1.5rem;
+    }
+}
+@media screen and (max-width:300px) {
+
+    .sing__header > h3{
+        font-size:1rem;
+    }
+    .sing__header .MuiSvgIcon-root{
+        font-size:1rem;
+    }
+}
+

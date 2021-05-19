@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Switch, Route,Redirect } from "react-router-dom";
+import { css } from "@emotion/core";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Subscription from "./components/Subscription";
+import Kids from "./components/Kids";
 
-function App() {
+const App = () => {
+  const [loading, setLoading] = useState(false);
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    background-color:#012055;
+    width:100%;
+    height:100vh;
+  `;
+
+  useEffect(() => {
+    setLoading(true);
+    setInterval(() => {
+      setLoading(false);
+    }, 7000);
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {loading ? (
+        <ClimbingBoxLoader
+          Loading={loading}
+          css={override}
+          color={"#f5f5f5"}
+          size={50}
+        />
+      ) : (
+        <>
+        
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/subs" component={Subscription} />
+            <Route exact path="/kids" component={Kids}/>
+            <Redirect exact to = "/" />
+          </Switch>
+        </>
+      )}
+    </>
   );
-}
+};
 
 export default App;
